@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnUpdateCustomer').click(function () {
+                var customer = new Object();
+                customer.Name = $('#txtCustomerName').val();
+
+                $.ajax({
+                    type: 'PUT',
+                    url: 'api/Customer/'+'84c3c465-90ec-4e0a-8057-0905e5c64434/',
+                    data: customer,
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#dvResults').text(data);
+                    }
+
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dvResults"></div>
+    <input type="text" id="txtCustomerName" />
+    <input type="button" id="btnUpdateCustomer" value="Update Customer" />
+
+</body>
+</html>

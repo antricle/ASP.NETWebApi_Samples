@@ -147,6 +147,9 @@ namespace ASP.NETWebApi_Samples.Controllers
 
             if (customer != null)
             {
+                //remove item from the list
+                customers.Remove(customers.SingleOrDefault(c => c.Id == id));
+
                 return Ok(true);
             }
             else
